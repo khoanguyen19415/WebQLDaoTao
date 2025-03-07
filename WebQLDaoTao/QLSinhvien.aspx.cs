@@ -8,11 +8,11 @@ using WebQLDaoTao.Models;
 
 namespace WebQLDaoTao
 {
-    public partial class QLSinhvien : System.Web.UI.Page
+    public partial class QLSinhvien : Secure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load(sender, e);
         }
         protected void gvSinhVien_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {

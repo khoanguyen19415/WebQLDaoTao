@@ -86,7 +86,22 @@
             </div>
         </div>
         <footer class="container-fluid text-center">
-            <p>Sinh thực hiện: 2221160033 - NguyenCanhDangKhoa</p>
+            <p>Sinh thực hiện: 2221160033 - NguyenCanhDangKhoa
+                <%
+                    if (Session["username"] == null)
+                    {
+                %>
+                    <a href="DangNhap.aspx">Login</a>
+                <%
+                    }
+                    else
+                    {
+                 %>
+                    <a href="DangXuat.aspx">Logout</a>
+                <%
+                    }
+                 %>
+            </p>
         </footer>
     </form>
 </body>

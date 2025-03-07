@@ -29,5 +29,22 @@ namespace WebQLDaoTao.Models
                 kq = true; //success
             return kq;
         }
+        public TaiKhoan findByUserName(string username)
+        {
+            TaiKhoan kq = null;
+            var conn = Connect();
+            conn.Open();
+            cmd = new SqlCommand("select * from taikhoan where tendangnhap=@tendangnhap", conn);
+            cmd.Parameters.AddWithValue("tendangnhap", username);
+            SqlDataReader rd = cmd.ExecuteReader();
+            if (rd.Read())
+                kq = new TaiKhoan
+                {
+                    TenDangNhap = rd["tendangnhap"].ToString(),
+                    MatKhau = rd["matkhau"].ToString(),
+                    VaiTro = rd["vaitro"].ToString()
+                }; // success
+            return kq;
+        }
     } 
 }
